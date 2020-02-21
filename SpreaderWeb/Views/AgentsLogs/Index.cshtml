@@ -32,26 +32,7 @@
     <tbody>
 @foreach (var item in Model)
 {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.AgentsLogCreated)
-            </td>
-            <td>
-                <a asp-action="Details" asp-controller="Agents" asp-route-id="@item.AgentId">@item.AgentName</a>
-            </td>
-            <td>
-                <a asp-action="Details" asp-controller="Jobs" asp-route-id="@item.JobId">@item.JobName</a>
-            </td>
-            <td>
-                <a asp-action="Details" asp-controller="Tasks" asp-route-id="@item.TaskId">@item.TaskKey</a>
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Message)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LogTypeDescription)
-            </td>
-        </tr>
+    @Html.DisplayFor(x => item)
 }
     </tbody>
 </table>
