@@ -21,7 +21,8 @@ namespace SpreaderWeb.Controllers
         // GET: Agents
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Agents.ToListAsync());
+            var blaze_dbContext = _context.Agents;
+            return View(await blaze_dbContext.OrderBy(x => x.Name).ToListAsync());
         }
 
         // GET: Agents/Details/5

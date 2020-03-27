@@ -1,0 +1,34 @@
+﻿@model SpreaderWeb.Models.AgentsLogView
+@{
+    string bgcolor;
+    switch (Model.LogTypeDescription)
+    {
+        case "Error":
+        case "Fatal":
+            bgcolor = "red";
+            break;
+        default:
+            bgcolor = "transparent";
+            break;
+    }
+}
+<tr bgcolor=@bgcolor>
+    <td>
+        @Html.DisplayFor(modelItem => Model.AgentsLogCreated)
+    </td>
+    <td>
+        <a asp-action="Details" asp-controller="Agents" asp-route-id="@Model.AgentId">@Model.AgentName</a>
+    </td>
+    <td>
+        <a asp-action="Details" asp-controller="Jobs" asp-route-id="@Model.JobId">@Model.JobName</a>
+    </td>
+    <td>
+        <a asp-action="Details" asp-controller="Tasks" asp-route-id="@Model.TaskId">@Model.TaskKey</a>
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => Model.Message)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => Model.LogTypeDescription)
+    </td>
+</tr>
